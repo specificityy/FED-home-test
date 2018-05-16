@@ -1,5 +1,24 @@
-[class=*score-indicator] {
-  background: no-repeat top;
-  background-size: cover;
-  background-image: url('/background--dashboard.png');
+$diameter: 300px;
+
+[class*="score-indicator"] {
+  height: $diameter;
+  width: $diameter;
+  border-radius: $diameter/2;
+  border: 1px solid #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: $diameter;
+    width: $diameter;
+    border-radius: $diameter/2;
+    background: hsla(0, 0, 95%, 0.5);
+    filter: blur(3px);
+  }
 }
