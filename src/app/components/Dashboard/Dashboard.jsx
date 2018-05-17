@@ -12,8 +12,10 @@ const cn = bemHelper({ block: "content" });
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { creditReport: { creditReportInfo: {} } };
+    this.state = { slide: 0, creditReport: { creditReportInfo: {} } };
     this.setCreditReport = this.setCreditReport.bind(this);
+    this.goToSlide = this.goToSlide.bind(this);
+    this.classNameFor = this.classNameFor.bind(this);
   }
 
   componentDidMount() {
@@ -26,14 +28,40 @@ class Dashboard extends React.Component {
     this.setState({ creditReport });
   }
 
+  classNameFor(element, index) {
+    return this.state.slide === index ? element + " active" : element;
+  }
+
+  goToSlide(slide) {
+    return () => this.setState({ slide });
+  }
+
   render() {
     return (
       <div className={cn("dashboard")}>
-        <LongTermDebt creditReport={this.state.creditReport.creditReportInfo} />
-        <NewOffers />
-        <ScoreIndicator
-          creditReport={this.state.creditReport.creditReportInfo}
-        />
+        <div className="slider">
+          <div className={this.classNameFor("slide", 0)}>
+            <NewOffers />
+            <ScoreIndicator
+              creditReport={this.state.creditReport.creditReportInfo}
+            />
+          </div>
+          <div className={this.classNameFor("slide", 1)}>
+            <LongTermDebt
+              creditReport={this.state.creditReport.creditReportInfo}
+            />
+          </div>
+          <div className="dots">
+            <span
+              className={this.classNameFor("dot", 0)}
+              onClick={this.goToSlide(0)}
+            />
+            <span
+              className={this.classNameFor("dot", 1)}
+              onClick={this.goToSlide(1)}
+            />
+          </div>
+        </div>
       </div>
     );
   }
