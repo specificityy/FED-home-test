@@ -5,6 +5,7 @@ import { getJSON } from "../../utils/fetch";
 import bemHelper from "../../utils/bem";
 import ScoreIndicator from "../ScoreIndicator/ScoreIndicator";
 import NewOffers from "../NewOffers/NewOffers";
+import LongTermDebt from "../LongTermDebt/LongTermDebt";
 
 const cn = bemHelper({ block: "content" });
 
@@ -28,6 +29,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className={cn("dashboard")}>
+        <LongTermDebt creditReport={this.state.creditReport.creditReportInfo} />
         <NewOffers />
         <ScoreIndicator
           creditReport={this.state.creditReport.creditReportInfo}

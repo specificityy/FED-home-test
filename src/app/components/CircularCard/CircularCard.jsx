@@ -11,7 +11,7 @@ const CircularCard = ({ children }) => {
 };
 
 CircularCard.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.any.isRequired
 };
 
 export default CircularCard;
