@@ -19,18 +19,6 @@ $score-colour: plum;
   align-items: center;
   flex-direction: column;
 
-  /* blurry background */
-  &::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    height: $diameter;
-    width: $diameter;
-    border-radius: $diameter/2;
-    background: hsla(0, 0, 75%, 0.4);
-    filter: blur(7px);
-  }
-
   &__current-value {
     font-size: 3.5rem;
     color: $score-colour;

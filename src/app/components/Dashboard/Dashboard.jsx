@@ -38,29 +38,27 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className={cn("dashboard")}>
-        <div className="slider">
-          <div className={this.classNameFor("slide", 0)}>
-            <NewOffers />
-            <ScoreIndicator
-              creditReport={this.state.creditReport.creditReportInfo}
-            />
-          </div>
-          <div className={this.classNameFor("slide", 1)}>
-            <LongTermDebt
-              creditReport={this.state.creditReport.creditReportInfo}
-            />
-          </div>
-          <div className="dots">
-            <span
-              className={this.classNameFor("dot", 0)}
-              onClick={this.goToSlide(0)}
-            />
-            <span
-              className={this.classNameFor("dot", 1)}
-              onClick={this.goToSlide(1)}
-            />
-          </div>
+      <div className={cn("dashboard") + " slider"}>
+        <div className={this.classNameFor("slide", 0)}>
+          <NewOffers />
+          <ScoreIndicator
+            creditReport={this.state.creditReport.creditReportInfo}
+          />
+        </div>
+        <div className={this.classNameFor("slide", 1)}>
+          <LongTermDebt
+            creditReport={this.state.creditReport.creditReportInfo}
+          />
+        </div>
+        <div className="dots">
+          <span
+            className={this.classNameFor("dot", 0)}
+            onClick={this.goToSlide(0)}
+          />
+          <span
+            className={this.classNameFor("dot", 1)}
+            onClick={this.goToSlide(1)}
+          />
         </div>
       </div>
     );

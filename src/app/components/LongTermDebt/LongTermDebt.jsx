@@ -12,7 +12,7 @@ class LongTermDebt extends React.Component {
     const { currentLongTermDebt, ...report } = this.props.creditReport || {};
 
     return (
-      <div className={cn()}>
+      <div className={cn() + " frosted-glass"}>
         <div>Your long term debt total</div>
         <div className={cn("current-value")}>
           £{formatCurrency(currentLongTermDebt)}

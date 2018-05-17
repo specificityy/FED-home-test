@@ -13,7 +13,7 @@ class ScoreIndicator extends React.Component {
       this.props.creditReport || {};
 
     return (
-      <div className={cn()}>
+      <div className={cn() + " frosted-glass"}>
         <div>Your credit score is</div>
         <div className={cn("current-value")}>{score}</div>
         <div>
