@@ -4,19 +4,21 @@ import PropTypes from "prop-types";
 import "./scoreIndicator.scss";
 import bemHelper from "../../utils/bem";
 
+const cn = bemHelper({ block: "score-indicator" });
+
 class ScoreIndicator extends React.Component {
   render() {
-    const cn = bemHelper({ block: this.props.block });
     const { score, maxScoreValue, equifaxScoreBandDescription } =
       this.props.creditReport || {};
+
     return (
-      <div className={cn("score-indicator")}>
+      <div className={cn(null)}>
         <div>Your credit score is</div>
-        <div>{score}</div>
+        <div className={cn("current-value")}>{score}</div>
         <div>
-          out of <strong>{maxScoreValue}</strong>
+          out of <strong className={cn("max")}>{maxScoreValue}</strong>
         </div>
-        <div>{equifaxScoreBandDescription}</div>
+        <div className={cn("desc")}>{equifaxScoreBandDescription}</div>
       </div>
     );
   }

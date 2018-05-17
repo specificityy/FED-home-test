@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import './dashboard.scss';
-import { getJSON } from '../../utils/fetch';
-import bemHelper from '../../utils/bem';
-import ScoreIndicator from '../ScoreIndicator/ScoreIndicator';
+import "./dashboard.scss";
+import { getJSON } from "../../utils/fetch";
+import bemHelper from "../../utils/bem";
+import ScoreIndicator from "../ScoreIndicator/ScoreIndicator";
 
-const cn = bemHelper({ block: 'content' });
+const cn = bemHelper({ block: "content" });
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
 
   componentDidMount() {
     getJSON(
-      '//s3.amazonaws.com/cdn.clearscore.com/native/interview_test/creditReportInfo.json',
+      "//s3.amazonaws.com/cdn.clearscore.com/native/interview_test/creditReportInfo.json"
     ).then(this.setCreditReport);
   }
 
@@ -26,9 +26,8 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className={cn('dashboard')}>
+      <div className={cn("dashboard")}>
         <ScoreIndicator
-          block="dashboard"
           creditReport={this.state.creditReport.creditReportInfo}
         />
       </div>
