@@ -1,0 +1,51 @@
+$diameter: 15vw;
+
+.new-offers {
+  /* round shape, card effect and colour */
+  position: relative;
+  height: $diameter;
+  width: $diameter;
+  border-radius: $diameter/2;
+  border: 2px solid hsla(0, 0, 70%, 0.7);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 1.3em;
+  color: white;
+  transform: translate(-90%, 60%);
+
+  /* centering children */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  /* blurry background */
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: $diameter;
+    width: $diameter;
+    border-radius: $diameter/2;
+    background: hsla(0, 0, 75%, 0.4);
+    filter: blur(7px);
+  }
+
+  &__value {
+    font-size: 6rem;
+    & + div {
+      margin-top: -0.7em;
+    }
+  }
+
+  /* inner arc */
+  &::before {
+    content: "";
+    position: absolute;
+    height: $diameter;
+    width: $diameter;
+    border-radius: $diameter/2;
+    border: 2px solid;
+    transform: scale(0.94);
+  }
+}

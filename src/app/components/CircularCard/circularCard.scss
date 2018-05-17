@@ -1,7 +1,7 @@
-$diameter: 30vw;
+$diameter: 35vw;
 $score-colour: paleturquoise;
 
-.score-indicator {
+.circular-card {
   /* round shape, card effect and colour */
   position: relative;
   height: $diameter;
@@ -10,7 +10,7 @@ $score-colour: paleturquoise;
   border: 2px solid hsla(0, 0, 70%, 0.7);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.5em;
   color: white;
 
   /* centering children */
@@ -29,29 +29,5 @@ $score-colour: paleturquoise;
     border-radius: $diameter/2;
     background: hsla(0, 0, 75%, 0.4);
     filter: blur(7px);
-  }
-
-  /* inner arc */
-  &::before {
-    content: "";
-    position: absolute;
-    height: $diameter;
-    width: $diameter;
-    border-radius: $diameter/2;
-    border: 4px solid $score-colour;
-    transform: scale(0.95);
-  }
-
-  &__current-value {
-    font-size: 5.5rem;
-    color: $score-colour;
-    & + div {
-      margin-top: -0.7em;
-    }
-  }
-
-  &__desc {
-    color: $score-colour;
-    margin-top: 1.7em;
   }
 }

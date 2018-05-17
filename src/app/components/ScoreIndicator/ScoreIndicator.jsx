@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import "./scoreIndicator.scss";
 import bemHelper from "../../utils/bem";
+// import CircularCard from "../CircularCard/CircularCard";
 
 const cn = bemHelper({ block: "score-indicator" });
 
@@ -12,7 +13,7 @@ class ScoreIndicator extends React.Component {
       this.props.creditReport || {};
 
     return (
-      <div className={cn(null)}>
+      <div className={cn()}>
         <div>Your credit score is</div>
         <div className={cn("current-value")}>{score}</div>
         <div>

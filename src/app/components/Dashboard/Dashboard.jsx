@@ -4,6 +4,7 @@ import "./dashboard.scss";
 import { getJSON } from "../../utils/fetch";
 import bemHelper from "../../utils/bem";
 import ScoreIndicator from "../ScoreIndicator/ScoreIndicator";
+import NewOffers from "../NewOffers/NewOffers";
 
 const cn = bemHelper({ block: "content" });
 
@@ -27,6 +28,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className={cn("dashboard")}>
+        <NewOffers />
         <ScoreIndicator
           creditReport={this.state.creditReport.creditReportInfo}
         />
