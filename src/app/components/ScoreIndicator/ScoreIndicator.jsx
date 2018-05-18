@@ -48,7 +48,8 @@ class ScoreIndicator extends React.Component {
 }
 
 const renderInnerArc = (score, maxScoreValue) => {
-  const arcLength = score / maxScoreValue * 1000 || 0;
+  createKeyFrameBounceAnimation(score, maxScoreValue);
+
   return (
     <svg width="340" height="340">
       <circle
@@ -58,11 +59,59 @@ const renderInnerArc = (score, maxScoreValue) => {
         fill="none"
         strokeWidth="3"
         strokeLinecap="round"
-        strokeDasharray={arcLength}
-        strokeDashoffset={arcLength}
+        strokeDasharray="1000"
+        strokeDashoffset="1000"
       />
     </svg>
   );
+};
+
+/*
+ adding the keyframes animation here cause needed to know the stop value for dashOffset,
+ which is calculated using the score and maxScore
+ */
+const createKeyFrameBounceAnimation = (score, maxScoreValue) => {
+  // final value of the dashOffset, where the animation will stop,
+  // which is the difference between the max and the score and then
+  // the ratio of that percentage value to 1k (1k being the complete length of the arc)
+  const offset = (maxScoreValue - score) / maxScoreValue * 1000 || 0;
+
+  if (offset === 0 || typeof document === "undefined") return;
+
+  // making sure this fn runs only once
+  if (createKeyFrameBounceAnimation.wasCalled) return;
+
+  createKeyFrameBounceAnimation.wasCalled = true;
+
+  const style = document.createElement("style");
+  style.type = "text/css";
+
+  style.innerHTML = `@keyframes bounce {
+    50% {
+      animation-timing-function: ease-in-out;
+      stroke-dashoffset: ${offset};
+    }
+    60% {
+      stroke-dashoffset: ${offset * 1.3};
+    }
+    70% {
+      stroke-dashoffset: ${offset};
+    }
+    80% {
+      stroke-dashoffset: ${offset * 1.15};
+    }
+    85% {
+      stroke-dashoffset: ${offset};
+    }
+    90% {
+      stroke-dashoffset: ${offset * 1.05};
+    }
+    100% {
+      stroke-dashoffset: ${offset};
+    }
+  }`;
+
+  document.getElementsByTagName("head")[0].appendChild(style);
 };
 
 ScoreIndicator.propTypes = {

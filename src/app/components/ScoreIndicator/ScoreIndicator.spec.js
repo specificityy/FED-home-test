@@ -29,10 +29,14 @@ describe("ScoreIndicator Component", () => {
   });
 
   it("should render the svg arc", () => {
-    expect(wrapper.find("svg circle").props().strokeDasharray).toBeCloseTo(
-      714.29,
-      2
-    );
+    expect(wrapper.find("svg circle").exists()).toBe(true);
+  });
+
+  it("should append a style tag with a bounce animation to the document head", () => {
+    expect(
+      document.getElementsByTagName("head")[0].getElementsByTagName("style")[0]
+        .innerHTML
+    ).toMatch(/^@keyframes bounce*/);
   });
 });
 
