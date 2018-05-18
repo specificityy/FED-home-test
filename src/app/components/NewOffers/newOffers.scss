@@ -3,22 +3,11 @@ $diameter: 160px;
 .new-offers {
   /* round shape, card effect and colour */
   position: absolute;
+  top: 0;
   height: $diameter;
   width: $diameter;
-  border-radius: 50%;
-  border: 2px solid hsla(0, 0, 70%, 0.7);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  text-align: center;
-  font-size: 1em;
-  color: white;
   transform: translate(-100%, -20%);
   transition: transform 0.7s ease;
-
-  /* centering children */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 
   &__value {
     font-size: 4rem;

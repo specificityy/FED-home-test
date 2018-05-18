@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import "./newOffers.scss";
 import bemHelper from "../../utils/bem";
-// import CircularCard from "../CircularCard/CircularCard";
 
 const cn = bemHelper({ block: "new-offers" });
 

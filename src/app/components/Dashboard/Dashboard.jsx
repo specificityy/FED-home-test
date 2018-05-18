@@ -40,10 +40,10 @@ class Dashboard extends React.Component {
     return (
       <div className={cn("dashboard") + " slider"}>
         <div className={this.classNameFor("slide", 0)}>
-          <NewOffers />
           <ScoreIndicator
             creditReport={this.state.creditReport.creditReportInfo}
           />
+          <NewOffers />
         </div>
         <div className={this.classNameFor("slide", 1)}>
           <LongTermDebt
