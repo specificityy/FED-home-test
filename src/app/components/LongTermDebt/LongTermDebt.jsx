@@ -6,6 +6,11 @@ import bemHelper from "../../utils/bem";
 
 const cn = bemHelper({ block: "long-term-debt" });
 
+/**
+ * I wasn't sure how to gather some of the data for this component,
+ * like the no-change-since-last-month, so tried to do my best of
+ * figuring some stuff out.
+ */
 class LongTermDebt extends React.Component {
   render() {
     const { currentLongTermDebt, ...report } = this.props.creditReport;
@@ -25,6 +30,7 @@ class LongTermDebt extends React.Component {
   }
 }
 
+// simple function to add commas to the amounts
 const formatCurrency = (amount = 0) =>
   amount
     .toString()
@@ -32,6 +38,7 @@ const formatCurrency = (amount = 0) =>
     .reverse()
     .reduce((acc, next, i) => (i % 3 === 0 ? next + "," + acc : next + acc));
 
+// I've made the assumption that this is the right way of calculating the total credit
 const totalCreditLimit = ({
   currentLongTermCreditLimit = 0,
   currentLongTermCreditUtilisation = 0,

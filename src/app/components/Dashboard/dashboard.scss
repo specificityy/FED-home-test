@@ -5,6 +5,7 @@ body {
   font-weight: 100;
 }
 
+/* the carousel, AKA: the slider */
 .slider {
   position: relative;
   background: inherit;
@@ -14,7 +15,7 @@ body {
   .slide {
     position: absolute;
     left: 50%;
-    top: 35%;
+    top: 42%;
     transform: translate(-50%, -50%);
     opacity: 0;
     z-index: 10;
@@ -26,15 +27,18 @@ body {
       z-index: 20;
     }
 
+    /* slide exit animation */
     &:not(.active) {
       transform: translate(-20%, -20%) scale(0.7);
 
+      /* lame attempt at a parallax effect on the new-offers component making it enter the stage at a slowe pace */
       &:first-child > :nth-child(2) {
         transform: translate(-20%, 40%) scale(0.5);
       }
     }
   }
 
+  /* slider dots sitting on top of the page */
   .dots {
     text-align: center;
     z-index: 30;
@@ -54,6 +58,7 @@ body {
     }
   }
 
+  /* pulls down the new-offers component on small screens */
   @media screen and (max-width: 768px) {
     .new-offers {
       position: relative;
@@ -76,7 +81,7 @@ body {
   font-size: 1em;
   color: #fff;
 
-  /* centering children */
+  /* common styles as well for centering children */
   display: flex;
   justify-content: center;
   align-items: center;

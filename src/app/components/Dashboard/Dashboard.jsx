@@ -9,6 +9,9 @@ import LongTermDebt from "../LongTermDebt/LongTermDebt";
 
 const cn = bemHelper({ block: "content" });
 
+/**
+ * This component is also the carousel despite its name
+ */
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +31,9 @@ class Dashboard extends React.Component {
     this.setState({ creditReport });
   }
 
+  /**
+   * The slides entrances and exits are handled through CSS based on the .active class
+   */
   classNameFor(element, index) {
     return this.state.slide === index ? element + " active" : element;
   }

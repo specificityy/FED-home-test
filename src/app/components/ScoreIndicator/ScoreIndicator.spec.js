@@ -20,6 +20,7 @@ describe("ScoreIndicator Component", () => {
     expect(wrapper.find(max).text()).toBe("700");
     expect(wrapper.find(desc).text()).toBe("foo");
 
+    // need to assert this after the timeouts cause the final value is animated
     wrapper.instance().incrementScore({ creditReport: mockData });
     setTimeout(
       () => expect(wrapper.find(creditReport.currentValue).text()).toBe("500"),

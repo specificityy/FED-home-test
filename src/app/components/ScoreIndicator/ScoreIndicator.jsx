@@ -17,13 +17,14 @@ class ScoreIndicator extends React.Component {
     this.incrementScore(props);
   }
 
+  // This creates a counter animation on the score, by updating the state each time
   incrementScore(props) {
     props = props || this.props;
     if (this.state.score >= props.creditReport.score) return;
 
-    setTimeout(_ =>
-      this.setState({ score: this.state.score + 1 }, this.incrementScore)
-    );
+    let nextValue = Math.min(this.state.score + 3, props.creditReport.score);
+
+    setTimeout(_ => this.setState({ score: nextValue }, this.incrementScore));
   }
 
   render() {
