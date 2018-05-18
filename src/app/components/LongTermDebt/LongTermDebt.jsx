@@ -9,7 +9,7 @@ const cn = bemHelper({ block: "long-term-debt" });
 
 class LongTermDebt extends React.Component {
   render() {
-    const { currentLongTermDebt, ...report } = this.props.creditReport || {};
+    const { currentLongTermDebt, ...report } = this.props.creditReport;
 
     return (
       <div className={cn() + " frosted-glass"}>

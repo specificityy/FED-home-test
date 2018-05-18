@@ -1,17 +1,18 @@
-$diameter: 15vw;
+$diameter: 160px;
 
 .new-offers {
   /* round shape, card effect and colour */
-  position: relative;
+  position: absolute;
   height: $diameter;
   width: $diameter;
-  border-radius: $diameter/2;
+  border-radius: 50%;
   border: 2px solid hsla(0, 0, 70%, 0.7);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1em;
   color: white;
-  transform: translate(-90%, 60%);
+  transform: translate(-100%, -20%);
+  transition: transform 0.7s ease;
 
   /* centering children */
   display: flex;
@@ -20,9 +21,9 @@ $diameter: 15vw;
   flex-direction: column;
 
   &__value {
-    font-size: 6rem;
+    font-size: 4rem;
     & + div {
-      margin-top: -0.7em;
+      margin-top: -0.5em;
     }
   }
 
@@ -32,33 +33,8 @@ $diameter: 15vw;
     position: absolute;
     height: $diameter;
     width: $diameter;
-    border-radius: $diameter/2;
+    border-radius: 50%;
     border: 2px solid;
     transform: scale(0.92);
   }
-}
-
-/* blurry background */
-.frosted-glass1 {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  margin: 0 auto;
-  padding: 2rem;
-  box-sizing: border-box;
-  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
-}
-
-.frosted-glass1::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url("/background--dashboard.png") no-repeat top;
-  box-shadow: inset 0 0 3000px hsla(0, 0%, 100%, 0.459);
-  filter: blur(10px);
-  margin: -20px;
 }

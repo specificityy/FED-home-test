@@ -1,4 +1,4 @@
-$diameter: 30vw;
+$diameter: 340px;
 $score-colour: plum;
 
 .long-term-debt {
@@ -6,11 +6,11 @@ $score-colour: plum;
   position: relative;
   height: $diameter;
   width: $diameter;
-  border-radius: $diameter/2;
+  border-radius: 50%;
   border: 2px solid hsla(0, 0, 70%, 0.7);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1em;
   color: white;
 
   /* centering children */
@@ -20,7 +20,7 @@ $score-colour: plum;
   flex-direction: column;
 
   &__current-value {
-    font-size: 3.5rem;
+    font-size: 3rem;
     color: $score-colour;
     margin: 0.4em 0;
   }

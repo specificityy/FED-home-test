@@ -9,8 +9,8 @@ describe("ScoreIndicator Component", () => {
     (wrapper = shallow(
       <ScoreIndicator
         creditReport={{
-          score: 42,
-          maxScoreValue: 43,
+          score: 500,
+          maxScoreValue: 700,
           equifaxScoreBandDescription: "foo"
         }}
       />
@@ -18,9 +18,16 @@ describe("ScoreIndicator Component", () => {
 
   it("should render data correctly", () => {
     const { currentValue, max, desc } = creditReport;
-    expect(wrapper.find(currentValue).text()).toBe("42");
-    expect(wrapper.find(max).text()).toBe("43");
+    expect(wrapper.find(currentValue).text()).toBe("500");
+    expect(wrapper.find(max).text()).toBe("700");
     expect(wrapper.find(desc).text()).toBe("foo");
+  });
+
+  it("should render the svg arc", () => {
+    expect(wrapper.find("svg circle").props().strokeDasharray).toBeCloseTo(
+      714.29,
+      2
+    );
   });
 });
 

@@ -9,17 +9,17 @@ describe("LongTermDebt Component", () => {
     (wrapper = shallow(
       <LongTermDebt
         creditReport={{
-          currentLongTermDebt: 42,
-          currentLongTermCreditLimit: 2,
-          currentLongTermCreditUtilisation: 1
+          currentLongTermDebt: 42000000,
+          currentLongTermCreditLimit: 3000,
+          currentLongTermCreditUtilisation: 1000
         }}
       />
     )));
 
   it("should render data correctly", () => {
     const { currentValue, creditLimit, noChange } = creditReport;
-    expect(wrapper.find(currentValue).text()).toBe("£42");
-    expect(wrapper.find(creditLimit).text()).toMatch(/1$/);
+    expect(wrapper.find(currentValue).text()).toBe("£42,000,000");
+    expect(wrapper.find(creditLimit).text()).toMatch(/2,000$/);
   });
 });
 
