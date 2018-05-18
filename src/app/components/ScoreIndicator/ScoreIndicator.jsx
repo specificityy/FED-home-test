@@ -7,6 +7,25 @@ import bemHelper from "../../utils/bem";
 const cn = bemHelper({ block: "score-indicator" });
 
 class ScoreIndicator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { score: 0 };
+    this.incrementScore = this.incrementScore.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    this.incrementScore(props);
+  }
+
+  incrementScore(props) {
+    props = props || this.props;
+    if (this.state.score >= props.creditReport.score) return;
+
+    setTimeout(_ =>
+      this.setState({ score: this.state.score + 1 }, this.incrementScore)
+    );
+  }
+
   render() {
     const {
       score,
@@ -17,7 +36,7 @@ class ScoreIndicator extends React.Component {
     return (
       <div className={cn() + " frosted-glass"}>
         <div>Your credit score is</div>
-        <div className={cn("current-value")}>{score}</div>
+        <div className={cn("current-value")}>{this.state.score}</div>
         <div>
           out of <strong className={cn("max")}>{maxScoreValue}</strong>
         </div>
