@@ -48,9 +48,9 @@ class ScoreIndicator extends React.Component {
 }
 
 const renderInnerArc = (score, maxScoreValue) => {
-  const arcLength = score / maxScoreValue * 1000;
+  const arcLength = score / maxScoreValue * 1000 || 0;
   return (
-    <svg viewBox="0 0 340 340" width="340" height="340">
+    <svg width="340" height="340">
       <circle
         cx="170"
         cy="170"
@@ -58,7 +58,8 @@ const renderInnerArc = (score, maxScoreValue) => {
         fill="none"
         strokeWidth="3"
         strokeLinecap="round"
-        strokeDasharray={arcLength || 0}
+        strokeDasharray={arcLength}
+        strokeDashoffset={arcLength}
       />
     </svg>
   );

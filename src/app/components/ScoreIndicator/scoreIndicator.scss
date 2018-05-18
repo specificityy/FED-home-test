@@ -25,16 +25,35 @@ $score-colour: paleturquoise;
 
     circle {
       stroke: $score-colour;
-      animation: dash 5s cubic-bezier(0.215, 0.61, 0.355, 1);
+      animation: bounce 3s ease-in forwards;
+
+      transform-origin: center;
+      transform: rotateZ(-90deg);
     }
   }
 }
 
-@keyframes dash {
-  from {
-    stroke-dashoffset: 1000;
+@keyframes bounce {
+  50% {
+    animation-timing-function: ease-in-out;
+    stroke-dashoffset: 0;
   }
-  to {
+  60% {
+    stroke-dashoffset: 90;
+  }
+  70% {
+    stroke-dashoffset: 0;
+  }
+  80% {
+    stroke-dashoffset: 50;
+  }
+  85% {
+    stroke-dashoffset: 0;
+  }
+  90% {
+    stroke-dashoffset: 15;
+  }
+  100% {
     stroke-dashoffset: 0;
   }
 }
