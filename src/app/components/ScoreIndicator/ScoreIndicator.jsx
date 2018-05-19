@@ -89,25 +89,28 @@ const createKeyFrameBounceAnimation = (score, maxScoreValue) => {
 
   style.innerHTML = `@keyframes bounce {
     50% {
-      animation-timing-function: ease-in-out;
+      animation-timing-function: ease-out;
       stroke-dashoffset: ${offset};
     }
     60% {
       stroke-dashoffset: ${offset * 1.3};
     }
     70% {
+      animation-timing-function: ease-out;
       stroke-dashoffset: ${offset};
     }
     80% {
-      stroke-dashoffset: ${offset * 1.15};
+      stroke-dashoffset: ${offset * 1.1};
     }
     85% {
+      animation-timing-function: ease-out;
       stroke-dashoffset: ${offset};
     }
     90% {
-      stroke-dashoffset: ${offset * 1.05};
+      stroke-dashoffset: ${offset * 1.04};
     }
     100% {
+      animation-timing-function: ease-out;
       stroke-dashoffset: ${offset};
     }
   }`;
