@@ -1,0 +1,18 @@
+$diameter: 340px;
+$score-colour: plum;
+
+.long-term-debt {
+  position: relative;
+  height: $diameter;
+  width: $diameter;
+
+  &__current-value {
+    font-size: 3rem;
+    color: $score-colour;
+    margin: 0.4em 0;
+  }
+
+  &__no-change {
+    margin-top: 2em;
+  }
+}

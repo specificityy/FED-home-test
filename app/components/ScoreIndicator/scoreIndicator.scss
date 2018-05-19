@@ -1,0 +1,35 @@
+$diameter: 340px;
+$score-colour: paleturquoise;
+
+.score-indicator {
+  position: relative;
+  height: $diameter;
+  width: $diameter;
+  border-radius: 50%;
+
+  &__current-value {
+    font-size: 5rem;
+    color: $score-colour;
+    & + div {
+      margin-top: -0.7em;
+    }
+  }
+
+  &__desc {
+    color: $score-colour;
+    margin-top: 1em;
+  }
+
+  svg {
+    position: absolute;
+
+    circle {
+      stroke: $score-colour;
+      animation: bounce 2s ease-in forwards;
+
+      /* for making the arc start from 12:00 rather than 3:00 */
+      transform-origin: center;
+      transform: rotateZ(-90deg);
+    }
+  }
+}

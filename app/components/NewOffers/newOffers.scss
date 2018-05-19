@@ -1,0 +1,28 @@
+$diameter: 160px;
+
+.new-offers {
+  position: absolute;
+  top: 0;
+  height: $diameter;
+  width: $diameter;
+  transform: translate(-100%, -20%);
+  transition: transform 0.7s ease;
+
+  &__value {
+    font-size: 4rem;
+    & + div {
+      margin-top: -0.5em;
+    }
+  }
+
+  /* inner arc */
+  &::after {
+    content: "";
+    position: absolute;
+    height: $diameter;
+    width: $diameter;
+    border-radius: 50%;
+    border: 2px solid;
+    transform: scale(0.92);
+  }
+}

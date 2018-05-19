@@ -1,1 +1,1 @@
-web: npm install && npm run build && npm run start
+web: node server-entry.js

@@ -1,0 +1,105 @@
+body {
+  background: url("/background--dashboard.png") no-repeat top;
+  background-size: cover;
+  font-family: AktivGrotesk;
+  font-weight: 100;
+}
+
+/* the carousel, AKA: the slider */
+.slider {
+  position: relative;
+  background: inherit;
+  width: 100vw;
+  height: 100vh;
+
+  .slide {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: 10;
+
+    transition: transform 0.5s ease, opacity 0.7s ease;
+
+    &.active {
+      opacity: 1;
+      z-index: 20;
+    }
+
+    /* slide exit animation */
+    &:not(.active) {
+      transform: translate(-20%, -20%) scale(0.7);
+
+      /* lame attempt at a parallax effect on the new-offers component making it enter the stage at a slowe pace */
+      &:first-child > :nth-child(2) {
+        transform: translate(-20%, 40%) scale(0.5);
+      }
+    }
+  }
+
+  /* slider dots sitting on top of the page */
+  .dots {
+    text-align: center;
+    z-index: 30;
+    > .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+      cursor: pointer;
+
+      &.active {
+        background-color: #fff;
+      }
+    }
+  }
+
+  /* pulls down the new-offers component on small screens */
+  @media screen and (max-width: 768px) {
+    .new-offers {
+      position: relative;
+      transform: translate(60%, 15%);
+    }
+  }
+}
+
+/* blurry background */
+.frosted-glass {
+  /* essentials for the frosted glass */
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 0.3em 1em rgba(0, 0, 0, 0.3);
+
+  /* common styles of circular cards: round shape and text style */
+  border-radius: 50%;
+  border: 2px solid hsla(0, 0, 70%, 0.7);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-size: 1em;
+  color: #fff;
+
+  /* common styles as well for centering children */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* the actual frosted glass element */
+.frosted-glass::before {
+  content: "";
+  position: absolute;
+  z-index: -10;
+
+  /* width and height match the body in order to have the blurry bg in the same place as the one below */
+  width: 100vw;
+  height: 100vh;
+
+  background: url("/background--dashboard.png") no-repeat top;
+  box-shadow: inset 0 0 3000px hsla(0, 0%, 100%, 0.459);
+  filter: blur(10px);
+  margin: -20px;
+}
